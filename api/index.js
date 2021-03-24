@@ -15,7 +15,7 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/logout', (req, res) => {
-  res.cookie('token', { maxAge: 0 })
+  res.cookie('token', '', { maxAge: 0 })
   res.redirect('back')
 })
 
