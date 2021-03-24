@@ -1,34 +1,24 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        poc-nuxt
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div>
+    <!-- {{ message }} -->
+    <br />
+    <a v-bind:href="login">Login</a> |
+    <a v-bind:href="logout">Logout</a>
+    <h6><br />src with cookie</h6>
+    <img v-bind:src="imgUrl" />
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      login: '/api/login',
+      logout: '/api/logout',
+      imgUrl: '/api/file-middleware' + '/users/1/01.png',
+    }
+  },
+}
 </script>
 
 <style>
@@ -42,16 +32,8 @@ export default {}
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
