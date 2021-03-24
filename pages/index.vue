@@ -15,7 +15,7 @@ export default {
     return {
       login: '/api/login',
       logout: '/api/logout',
-      imgUrl: '/api/file-middleware' + '/users/1/01.png',
+      imgUrl: '/api/file-middleware?source=' + '/users/1/01.png',
     }
   },
 }

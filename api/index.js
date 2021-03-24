@@ -1,7 +1,7 @@
 import { json } from 'body-parser'
 
 const app = require('express')()
-const API_END_POINT = 'http://localhost:3000/api/v1/files'
+const API_END_POINT = 'http://localhost:3010/api/v1/files'
 
 app.use(json())
 
@@ -19,13 +19,10 @@ app.get('/logout', (req, res) => {
   res.redirect('back')
 })
 
-app.get('/file-middleware/*', (req, res) => {
-  console.log('--->', req.originalUrl)
-
-  const fileUrl =
-    API_END_POINT + req.originalUrl.replace('/api/file-middleware', '')
-  console.log('===>', fileUrl)
-
+app.get('/file-middleware', (req, res) => {
+  const fileUrl = API_END_POINT + req.query.source
+  console.log('---> request url: ', req.originalUrl)
+  console.log('------> redirect to file url: ', fileUrl)
   res.redirect(fileUrl)
 })
 
